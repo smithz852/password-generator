@@ -1,5 +1,14 @@
 // Assignment code here
 
+function capLetters() {
+  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var upperCaseLength = upperCase.length;
+  var result = upperCase.charAt(Math.floor(Math.random() * upperCaseLength));
+  return result;
+}
+
+console.log(capLetters());
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
