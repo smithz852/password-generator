@@ -52,16 +52,25 @@ var passwordSizeCondition = prompt('How many characters would you like your pass
    return passwordSizeCondition;
  }
 
+//  generates one random character from a list of all character functions
+ function randomTextGenerator() {
+  var textList = capLetters() + smallLetters() + numbers() + symbols();
+  var textLength = 4;
+  var result = textList.charAt(Math.floor(Math.random() * textLength));
+  return result;
+}
+
 //  password generator function using length input from passwordSize function and character inputs from other functions above. Not working yet
  function generatePassword() {
   var passwordLength = passwordSize() ;
   // console.log(passwordLength);
-  var characterInput = [capLetters(), smallLetters(), numbers(), symbols()];
+  var characterInput = randomTextGenerator();
+  console.log(characterInput);
   var result = "";
-  for (var i = 0; x = passwordLength; i < x, i++) {
-    result = characterInput * x;
-    console.log(result);
-} 
+  for (var i = 0, n = passwordLength; i < passwordLength; ++i) {
+    result = characterInput[Math.floor(Math.random() * n)];
+  }
+  console.log(result);
  }
 
 //  For later, figure out how to make an alert if text is entered.
@@ -73,12 +82,7 @@ var passwordSizeCondition = prompt('How many characters would you like your pass
 //  (8 >= passwordSizeCondition <= 128)
 //    return passwordSizeCondition;
 //   }
-// function randomTextGenerator() {
-//   var textList = capLetters() + smallLetters() + numbers() + symbols();
-//   var textLength = 4;
-//   var result = textList.charAt(Math.floor(Math.random() * textLength));
-//   return result;
-// }
+
 
 // console.log(randomTextGenerator());
 
