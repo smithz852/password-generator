@@ -38,18 +38,37 @@ console.log(capLetters(), smallLetters(), numbers(), symbols());
 var generatorList = [capLetters(), smallLetters(), numbers(), symbols()];
 console.log(generatorList);
 
+// password length function with prompts
 function passwordSize() {
 var passwordSizeCondition = prompt('How many characters would you like your password to be?', 'Enter Length (8-128)')
  if (8 > passwordSizeCondition > 0) {
   alert('Password too short, please enter a number from 8-128.');
-  passwordSize();
+  return;
  } else if (passwordSizeCondition > 128)  {
   alert('Password too long, please enter a number from 8-128.');
-  passwordSize();
- } else if (passwordSizeCondition === null ) {
   return;
+ } else (8 >= passwordSizeCondition <= 128)
+  //  console.log(passwordSizeCondition);
+   return passwordSizeCondition;
  }
-}
+
+//  password generator function using length input from passwordSize function and character inputs from other functions above. Not working yet
+ function generatePassword() {
+  var passwordLength = passwordSize() ;
+  // console.log(passwordLength);
+  var characterInput = [capLetters(), smallLetters(), numbers(), symbols()];
+  var result = "";
+  for (var i = 0; x = passwordLength; i < x, i++) {
+    result = characterInput * x;
+    console.log(result);
+} 
+ }
+
+//  For later, figure out how to make an alert if text is entered.
+//  else if (passwordSizeCondition === ) {
+//   alert('Please enter a valid number');
+//   return;
+
 
 //  (8 >= passwordSizeCondition <= 128)
 //    return passwordSizeCondition;
@@ -89,6 +108,3 @@ generateBtn.addEventListener("click", writePassword);
 
 // password function
 
-// function generatePassword() {
-//   var passwordLength = 
-// } 
