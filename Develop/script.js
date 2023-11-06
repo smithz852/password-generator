@@ -82,6 +82,7 @@ var passwordSizeCondition = prompt('How many characters would you like your pass
     result += characterInput.charAt(Math.floor(Math.random() * characterInput.length));
 }
   console.log(result);
+  return result;
  }
 
 
