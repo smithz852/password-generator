@@ -21,14 +21,10 @@ console.log(generatorList);
 // password length function with prompts
 function passwordSize() {
 var passwordSizeCondition = prompt('How many characters would you like your password to be?', 'Enter Length (8-128)')
- if (8 > passwordSizeCondition > 0) {
-  alert('Password too short, please enter a number from 8-128.');
-  return;
- } else if (passwordSizeCondition > 128)  {
-  alert('Password too long, please enter a number from 8-128.');
-  return;
- } else (8 >= passwordSizeCondition <= 128)
-  //  console.log(passwordSizeCondition);
+ if (passwordSizeCondition < 8 || passwordSizeCondition > 128 || isNaN(passwordSizeCondition)) {
+  alert('Please enter a valid number from 8-128')
+ }
+   passwordSizeCondition = parseInt(passwordSizeCondition, 10);
    return passwordSizeCondition;
  }
 
@@ -75,26 +71,18 @@ var passwordSizeCondition = prompt('How many characters would you like your pass
 //  password generator function using length input from passwordSize function and character inputs from other functions above. Not working yet
  function generatePassword() {
   var passwordLength = passwordSize();
-  // console.log(passwordLength);
-  var characterInput = upperCaseCriteria() + lowerCaseCriteria() + symbolsCriteria() + numbersCriteria();
-  var charSet = characterInput;
+  var characterInput = '';
+  characterInput += upperCaseCriteria() || '';
+  characterInput += lowerCaseCriteria() || '';
+  characterInput += symbolsCriteria() || '';
+  characterInput += numbersCriteria() || '';
   console.log(characterInput);
   var result = "";
-  for (var i = 0, n = charSet.length; i === passwordLength; ++i) {
-    result = characterInput.charAt(Math.floor(Math.random() * n));
+  for (var i = 0; i < passwordLength; i++) {
+    result += characterInput.charAt(Math.floor(Math.random() * characterInput.length));
 }
   console.log(result);
  }
-
-//  function generatePassword1() {
-//   var length = 8,
-//       charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-//       retVal = "";
-//   for (var i = 0, n = charset.length; i === length; ++i) {
-//       retVal += charset.charAt(Math.floor(Math.random() * n));
-//   }
-//   return retVal;
-// }
 
 
  //  generates one random character from a list of all character functions
