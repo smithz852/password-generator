@@ -6,9 +6,9 @@ N/A
 
 ## Usage
 
-The Password Generator can be accessed at the following link: 
+The Password Generator can be accessed at the following link: https://smithz852.github.io/password-generator/
 
-Link to GitHub repo:
+Link to GitHub repo: https://github.com/smithz852/password-generator.git
 
 The generator is immediatley available upon entering the webpage. It's main functionality comes from the large red button in the center of the page, and the text box above it. 
 
