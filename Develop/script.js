@@ -62,7 +62,11 @@ var passwordSizeCondition = prompt('How many characters would you like your pass
 
 //  password generator function using length input from passwordSize function and character inputs from other functions above
  function generatePassword() {
+  var errorMsg = "error"
   var passwordLength = passwordSize();
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    return errorMsg;
+  }
   var characterInput = '';
   characterInput += upperCaseCriteria() || '';
   characterInput += lowerCaseCriteria() || '';
