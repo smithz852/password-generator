@@ -1,5 +1,9 @@
 # Password Generator
 
+## Installation
+
+N/A
+
 ## Usage
 
 The Password Generator can be accessed at the following link: 
