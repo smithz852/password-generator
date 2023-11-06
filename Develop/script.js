@@ -4,38 +4,18 @@
 // var passwordSize = x;
 // var passwordLength = 8 >= x >= 128;
 
-function capLetters() {
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var textLength = upperCase.length;
-  var result = upperCase.charAt(Math.floor(Math.random() * textLength));
-  return result;
-}
 
-function smallLetters() {
-  var smallCase = "abcdefghijklmnopqrstuvwxyz";
-  var textLength = smallCase.length;
-  var result = smallCase.charAt(Math.floor(Math.random() * textLength));
-  return result;
-}
 
-function numbers() {
+  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+
   var numbersList = "0123456789";
-  var textLength = numbers.length;
-  var result = numbersList.charAt(Math.floor(Math.random() * textLength));
-  return result;
-}
+ 
 
-function symbols() {
   var symbolList = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-  var textLength = symbolList.length;
-  var result = symbolList.charAt(Math.floor(Math.random() * textLength));
-  return result;
-}
-
-console.log(capLetters(), smallLetters(), numbers(), symbols());
 
 // array for generator
-var generatorList = [capLetters(), smallLetters(), numbers(), symbols()];
+var generatorList = [upperCase, lowerCase, numbersList, symbolList];
 console.log(generatorList);
 
 // password length function with prompts
@@ -52,26 +32,78 @@ var passwordSizeCondition = prompt('How many characters would you like your pass
    return passwordSizeCondition;
  }
 
-//  generates one random character from a list of all character functions
- function randomTextGenerator() {
-  var textList = capLetters() + smallLetters() + numbers() + symbols();
-  var textLength = 4;
-  var result = textList.charAt(Math.floor(Math.random() * textLength));
-  return result;
-}
+
+ function upperCaseCriteria() {
+  var upperCaseAccepted = confirm('Would you like to use Upper Case letters?');
+   if (upperCaseAccepted !== true) {
+    return;
+   } else {
+    return upperCase;
+   }
+ }
+
+ function lowerCaseCriteria() {
+  var lowerCaseAccepted = confirm('Would you like to use Lower Case letters?');
+   if (lowerCaseAccepted !== true) {
+    return;
+   } else {
+    return lowerCase;
+   }
+ }
+
+ function symbolsCriteria() {
+  var symbolsAccepted = confirm('Would you like to use Symbols?');
+   if (symbolsAccepted !== true) {
+    return;
+   } else {
+    return symbolList;
+   }
+ }
+
+ function numbersCriteria() {
+  var numbersAccepted = confirm('Would you like to use Numbers?');
+   if (numbersAccepted !== true) {
+    return;
+   } else {
+    console.log(numbersList);
+    return numbersList;
+    
+   }
+ }
+
 
 //  password generator function using length input from passwordSize function and character inputs from other functions above. Not working yet
  function generatePassword() {
-  var passwordLength = passwordSize() ;
+  var passwordLength = passwordSize();
   // console.log(passwordLength);
-  var characterInput = randomTextGenerator();
+  var characterInput = upperCaseCriteria() + lowerCaseCriteria() + symbolsCriteria() + numbersCriteria();
+  var charSet = characterInput;
   console.log(characterInput);
   var result = "";
-  for (var i = 0, n = passwordLength; i < passwordLength; ++i) {
-    result = characterInput[Math.floor(Math.random() * n)];
-  }
+  for (var i = 0, n = charSet.length; i === passwordLength; ++i) {
+    result = characterInput.charAt(Math.floor(Math.random() * n));
+}
   console.log(result);
  }
+
+//  function generatePassword1() {
+//   var length = 8,
+//       charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+//       retVal = "";
+//   for (var i = 0, n = charset.length; i === length; ++i) {
+//       retVal += charset.charAt(Math.floor(Math.random() * n));
+//   }
+//   return retVal;
+// }
+
+
+ //  generates one random character from a list of all character functions
+//  function randomTextGenerator() {
+//   var textList = capLetters() + smallLetters() + numbers() + symbols();
+//   var passwordLength = passwordSize() ;
+//   var result = textList.charAt(Math.floor(Math.random() * passwordLength));
+//   return result;
+// }
 
 //  For later, figure out how to make an alert if text is entered.
 //  else if (passwordSizeCondition === ) {
